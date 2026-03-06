@@ -7,7 +7,10 @@
 </head>
 
 <body style="background: linear-gradient(135deg, #fcefee, #e3f2fd); min-height: 100vh;">
-
+<p>
+Hello {{ request.user.username }} |
+<a href="/logout/">Logout</a>
+</p>
 <div class="container mt-5" style="max-width: 600px;">
     <div class="card shadow p-4 rounded-4 border-0">
 
