@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Task
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 @login_required
 def task_list(request):
@@ -45,3 +46,13 @@ def edit_task(request, task_id):
         return redirect('task_list')
 
     return render(request, 'tasks/edit_task.html', {'task': task})
+
+def signup(request):  #shows signup, creates user, redirects to login
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")
+    else:
+        form = UserCreationForm()
+    return render(request, "signup.html", {"form": form})
