@@ -1,8 +1,46 @@
-<h2>Login</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Login • Trackify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background: linear-gradient(135deg, #fcefee, #e3f2fd); min-height: 100vh;">
+
+<div class="container mt-5" style="max-width: 420px;">
+<div class="card shadow p-4 rounded-4 border-0">
+
+<h2 class="text-center mb-4">🌻 Trackify</h2>
+<p class="text-center text-muted small">Welcome back ✨</p>
 
 <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+{% csrf_token %}
 
-    <button type="submit">Login</button>
+<div class="mb-3">
+<input type="text" name="username" placeholder="Username"
+class="form-control rounded-pill" required>
+</div>
+
+<div class="mb-3">
+<input type="password" name="password" placeholder="Password"
+class="form-control rounded-pill" required>
+</div>
+
+<button type="submit" class="btn btn-dark rounded-pill w-100">
+Login
+</button>
+
 </form>
+
+<p class="text-center text-muted small mt-3">
+New here? <a href="{% url 'signup' %}">Create an account</a>
+</p>
+
+</div>
+</div>
+
+</body>
+</html>
+
